@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% block content %}
+<main id="main">
+    <div class="container mt-5">
+        <h1 class="mb-4">Recommended Skills</h1>
+        <p>Enter your career path to know the recommended skills:</p>
+        <form id="skillForm">
+            <div class="input-group mb-3">
+                <input type="text" id="queryInput" class="form-control" placeholder="Type your query">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" onclick="getSkills()">Send</button>
+                </div>
+            </div>
+        </form>
+        <div id="skillsContainer" class="row">
+            <!-- Skills will be appended here -->
+        </div>
+    </div>
+</main>
+    <script>
+        async function getSkills() {
+            const queryInput = document.getElementById('queryInput').value;
+            const response = await fetch('/recommend-skills', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ input: queryInput })
+            });
+            const data = await response.json();
+            const skillsContainer = document.getElementById('skillsContainer');
+            skillsContainer.innerHTML = '';
+            if (data.skills) {
+                data.skills.forEach(skill => {
+                    const skillCard = `<div class="col-lg-6 col-md-6 mb-4 skill-item">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-check-circle text-success me-2"></i>${skill.title}</h5>
+                                <p class="card-text">${skill.description}</p>
+                            </div>
+                        </div>
+                    </div>`;
+                    skillsContainer.innerHTML += skillCard;
+                });
+            } else if (data.error) {
+                skillsContainer.innerHTML = `<p>Error: ${data.error}</p>`;
+            } else {
+                skillsContainer.innerHTML = '<p>No skills found.</p>';
+            }
+        }
+    </script>
+    {%endblock content%}

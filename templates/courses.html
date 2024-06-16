@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Recommendations</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<main id="main">
+    <section class="courses-section" id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recommended Courses</h2>
+                <p>Based on your input, here are some courses we recommend for you:</p>
+            </div>
+            <div class="input-group mb-4">
+                <input type="text" class="form-control" id="user-input" placeholder="Type your query">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="send-btn">Send</button>
+                </div>
+            </div>
+            <div class="row" id="courses-container">
+                <!-- Courses will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+document.getElementById('send-btn').addEventListener('click', function() {
+    var userInput = document.getElementById('user-input').value;
+    fetch('/recommend-courses', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ input: userInput }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        var coursesContainer = document.getElementById('courses-container');
+        coursesContainer.innerHTML = '';  // Clear existing courses
+        data.courses.forEach(course => {
+            var courseCard = `
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">${course.title}</h5>
+                            <p class="card-text">${course.description}</p>
+                            <a href="${course.url}" class="btn btn-primary">Go to course</a>
+                        </div>
+                    </div>
+                </div>`;
+            coursesContainer.innerHTML += courseCard;
+        });
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
+</body>
+</html>

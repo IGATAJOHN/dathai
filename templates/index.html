@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dathway</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{url_for('static',filename='assets/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+  
+  <!-- Template Main CSS File -->
+  <link href="{{url_for('static',filename='assets/css/style.css')}}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iPortfolio
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Updated: Mar 17 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="{{url_for('static',filename='assets/img/dath2.jpg')}}" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">Dathway</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="{{url_for('chat')}}" class="nav-link scrollto active"><i class="bx bx-message"></i> <span>Chat</span></a></li>
+          <li><a href="{{url_for('skills')}}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Skills</span></a></li>
+          <li><a href="{{url_for('courses')}}" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Courses</span></a></li>
+          <li><a href="{{url_for('community')}}" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Community</span></a></li>
+          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-cog"></i> <span>Account</span></a></li>
+          <li><a href="{{url_for('logout')}}" class="nav-link scrollto"><i class="bx bx-exit"></i> <span>Logout</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+ {%block content %}
+ {% endblock content %}
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{url_for('static',filename='assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
+  <script src="{{url_for('static',filename='assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{url_for('static',filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{url_for('static',filename='assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{url_for('static',filename='assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{url_for('static',filename='assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{url_for('static',filename='assets/vendor/typed.js/typed.umd.js')}}"></script>
+  <script src="{{url_for('static',filename='assets/vendor/waypoints/noframework.waypoints.js')}}"></script>
+  <script src="{{url_for('static',filename='assets/vendor/php-email-form/validate.js')}}"></script>
+  
+  <!-- Template Main JS File -->
+  <script src="{{url_for('static',filename='assets/js/main.js')}}"></script>
+
+  <style>
+ 
+ .chat-container {
+            width: 100%;
+            max-width: 1000px; /* Increased width for larger screens */
+            height: 700px; /* Increased height for better visibility */
+            display: flex;
+            flex-direction: column;
+            border: none;
+            top: 5px;
+            border-radius: 5px;
+            background-color: #fff;
+            /* background-color: url("{{ url_for('static', filename='assets/img/emman.png') }}");  Add your image URL here */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
+        }
+        .chat-header {
+            padding: 15px; /* Increased padding */
+            background-color: white;
+            color: black;
+            border-bottom: 1px solid #dee2e6;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .chat-body {
+            flex: 1;
+            padding: 15px; /* Increased padding */
+            overflow-y: auto;
+        }
+        .chat-footer {
+            padding: 15px; /* Increased padding */
+            border-top: 1px solid #dee2e6;
+        }
+        .input-group {
+            width: 100%;
+        }
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .message.bot .text {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            padding: 10px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .message.user .text {
+            background-color: #007bff;
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: right;
+            display: inline-block;
+        }
+        h4 {
+            background-color:white; /* Background color */
+            color: black;
+            padding: 10px; /* Padding to make the background thicker */
+            border-radius: 5px;
+            display: inline-block; /* Ensure padding is applied only around the text */
+        }
+        @media (max-width: 768px) {
+            .chat-container {
+                max-width: 100%; /* Full width for smaller screens */
+                height: 80%; /* Adjust height for smaller screens */
+            }
+        }
+  </style>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#send-btn').click(function() {
+            sendMessage();
+        });
+
+        $('#user-input').keypress(function(e) {
+            if (e.which == 13) {  // Enter key pressed
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            var userInput = $('#user-input').val();
+            if (userInput.trim() === '') {
+                return;
+            }
+
+            // Append user message to chat body
+            $('#chat-body').append(`
+                <div class="message user">
+                    <div class="text">${userInput}</div>
+                </div>
+            `);
+            $('#user-input').val('');  // Clear input field
+
+            // Scroll to the bottom of the chat body
+            $('#chat-body').scrollTop($('#chat-body')[0].scrollHeight);
+
+            // Send the message to the backend
+            $.ajax({
+                url: '/get-response',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ input: userInput }),
+                success: function(response) {
+                    if (response.error) {
+                        alert('Error: ' + response.error);
+                        return;
+                    }
+
+                    var botResponse = response.response;
+
+                    // Append bot response to chat body
+                    $('#chat-body').append(`
+                        <div class="message bot">
+                            <i class="bi bi-robot"></i>
+                            <div class="text">${botResponse}</div>
+                        </div>
+                    `);
+
+                    // Scroll to the bottom of the chat body
+                    $('#chat-body').scrollTop($('#chat-body')[0].scrollHeight);
+                },
+                error: function(xhr, status, error) {
+                    alert('An error occurred: ' + error);
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+
+</html>

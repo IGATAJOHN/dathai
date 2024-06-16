@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+{% block content %}
+<main id="main">
+    <!-- Chatbot Interface -->
+    <div class="container mt-5">
+        <div class="chat-container mx-auto">
+            <div class="chat-header">
+                <h4><b>Chatbot</b></h4>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <div class="message bot">
+                    <i class="bi bi-robot"></i>
+                    <div class="text">Hello! How can I assist you today?</div>
+                </div>
+                <!-- Messages will be appended here -->
+            </div>
+            <div class="chat-footer">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="user-input" placeholder="Type a message">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main><!-- End #main -->
+{% endblock content %}
+
+<script>
+    document.getElementById('send-btn').addEventListener('click', async () => {
+        const userInput = document.getElementById('user-input').value;
+        if (userInput.trim() === '') return;
+
+        const chatBody = document.getElementById('chat-body');
+
+        // Append user message
+        const userMessage = document.createElement('div');
+        userMessage.classList.add('message', 'user');
+        userMessage.innerHTML = `<div class="text">${userInput}</div>`;
+        chatBody.appendChild(userMessage);
+
+        // Clear input
+        document.getElementById('user-input').value = '';
+
+        // Send message to server
+        const response = await fetch('/get-response', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ input: userInput })
+        });
+
+        const data = await response.json();
+
+        // Append bot response
+        const botMessage = document.createElement('div');
+        botMessage.classList.add('message', 'bot');
+        botMessage.innerHTML = `<div class="text">${data.response}</div>`;
+        chatBody.appendChild(botMessage);
+
+        // Scroll to bottom
+        chatBody.scrollTop = chatBody.scrollHeight;
+    });
+</script>

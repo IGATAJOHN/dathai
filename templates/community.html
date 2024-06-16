@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% block content %}
+<main id="main">
+    <section class="community-section" id="community">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Recommended Communities</h2>
+                <p>Based on your input, here are some communities we recommend for you:</p>
+            </div>
+            <div class="input-group mb-4">
+                <input type="text" class="form-control" id="user-input" placeholder="Type your query">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="send-btn">Send</button>
+                </div>
+            </div>
+            <div class="row" id="community-container">
+                {% for community in communities %}
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-check-circle text-success me-2"></i>{{ community.community_name }}</h5>
+                            <p class="card-text">{{ community.community_description }}</p>
+                            <a href="{{ community.community_url }}" class="btn btn-primary">Go to community</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+<script>
+document.getElementById('send-btn').addEventListener('click', function() {
+    var userInput = document.getElementById('user-input').value;
+    fetch('/recommend-communities', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ input: userInput }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        var communityContainer = document.getElementById('community-container');
+        communityContainer.innerHTML = '';
+        data.communities.forEach(community => {
+            var communityCard = `<div class="col-lg-6 col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="bi bi-check-circle text-success me-2"></i>${community.name}</h5>
+                                            <p class="card-text">${community.description}</p>
+                                            <a href="${community.url}" class="btn btn-primary">Go to community</a>
+                                        </div>
+                                    </div>
+                                </div>`;
+            communityContainer.innerHTML += communityCard;
+        });
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
+{% endblock content %}

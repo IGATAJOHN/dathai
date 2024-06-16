@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='assets/css/mystyle.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Dathway - Unlock Your Potential</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='assets/img/dath1.png') }}" alt="Pathway Logo" width="120">
+
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">How it Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Why Dathway</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">What to Learn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><button class="btn" style="border: 1px solid turquoise;color: white;">Login</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><button class="btn active btn-info">Signup</button></a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+ <!-- Hero Section with Video Background -->
+ <div class="hero-section">
+    <video autoplay muted loop>
+        <source src="{{ url_for('static', filename='assets/img/aivid.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+        <h1>Unlock Your Potential with Personalized AI Guidance</h1>
+        <p>Empowering learners and career changers with tailored skill recommendations and curated courses.</p>
+        <a href="#" class="btn btn-get-started">Get Started</a>
+    </div>
+</div>
+
+    <!-- How it Works Section -->
+    <div class="how-it-works-section">
+        <div class="container">
+            <h2 class="how-it-works-title">How It Works</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="how-it-works-item">
+                        <img src="{{ url_for('static', filename='assets/img/m1.png') }}" alt="Step 1">
+                        <div>
+                            <a href="{{url_for('register')}}"><button class="btn btn-lg"style=" border: 1px solid white; color: white;">Step 1</button></a><br><br>
+                            <h3>Sign Up</h3>
+                            <p>Create your account in just few clicks and join our community of learners and professionals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="how-it-works-item">
+                        <img src="{{ url_for('static', filename='assets/img/m2.png') }}" alt="Step 2">
+                        <div>
+                            <a href="{{url_for('chat')}}"><button class="btn btn-lg" style="border: 1px solid white; color: white;">Step 2</button></a><br><br>
+                            <h3>Chat with AI</h3>
+                            <p>Answer a few simple questions about your interests, strengths and career goals. This helps our AI Understands your unique preferences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="how-it-works-item">
+                        <img src="{{ url_for('static', filename='assets/img/m3.png') }}" alt="Step 3">
+                        <div>
+                            <a href="{{url_for('courses')}}"><button class="btn btn-lg" style="border: 1px solid white; color: white;">Step 3</button></a><br><br>
+                            <h3>Recommendations</h3>
+                            <p>Our AI analyzes your responses and generates a curated list of skills and courses tailored to your needs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="how-it-works-item">
+                        <img src="{{ url_for('static', filename='assets/img/m4.png') }}" alt="Step 4">
+                        <div>
+                            <a href="{{url_for('register')}}"><button class="btn btn-lg" style="border: 1px solid white; color: white;">Step 4</button></a><br><br>
+                            <h3>Start Learning</h3>
+                            <p>Dive into the recommended courses and resources, and track your progress as you build new skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features and Benefits Section -->
+    <div class="features-benefits-section">
+        <div class="container">
+            <h2>Features and Benefits</h2>
+            <p>Discover skills that align with your passions and get guidance tailored to your unique journey.</p>
+            <div class="row">
+                <div class="col-md-3 feature-item">
+                    <img src="{{ url_for('static', filename='assets/img/g8.png') }}" alt="Personalized Skill Recommendations">
+                    <h5>Personalized Skill Recommendations</h5>
+                    <p>Get suggestions based on what you enjoy and your strengths.</p>
+                </div>
+                <div class="col-md-3 feature-item">
+                    <img src="{{ url_for('static', filename='assets/img/g7.png') }}" alt="Curated Courses">
+                    <h5>Curated Courses</h5>
+                    <p>Access courses that match your learning style and goals.</p>
+                </div>
+                <div class="col-md-3 feature-item">
+                    <img src="{{ url_for('static', filename='assets/img/g6.png') }}" alt="Supportive Community">
+                    <h5>Supportive Community</h5>
+                    <p>Connect with fellow learners and professionals for support and networking.</p>
+                </div>
+                <div class="col-md-3 feature-item">
+                    <img src="{{ url_for('static', filename='assets/img/g5.png') }}" alt="Accessibility">
+                    <h5>Accessibility</h5>
+                    <p>Designed with features that cater to users with learning disabilities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Why Dathway Section -->
+        <section class="why-dathway">
+            <div class="container">
+                <h2>Why Dathway</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h5>Affordable:</h5>
+                            <p>We believe that everyone should have access to affordable career guidance. We offer an economical solution without compromising on quality.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h5>AI-Powered Insights:</h5>
+                            <p>Leverage the power of artificial intelligence to gain valuable insights into your strengths and potential career paths.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h5>Extensive Resources:</h5>
+                            <p>Access a comprehensive library of tailored resources, including insights, educational materials, and skill-building opportunities for your chosen career.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h5>Convenient:</h5>
+                            <p>Say goodbye to lengthy career assessments and research. Get quick and accurate results with a streamlined process.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <div class="card">
+                            <h5>Accessible:</h5>
+                            <p>Our web app is readily available on all devices - Mobile, Tablet & Laptop ensuring that you can embark on your career journey anytime, anywhere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <!-- What to Learn Section -->
+        <section class="what-to-learn">
+            <div class="container">
+                <h2>What to Learn</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="{{ url_for('static', filename='assets/img/r1.png') }}" alt="Data Science & Machine Learning">
+                            <div class="card-body">
+                                <h5 class="card-title">Data Science & Machine Learning</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Python for Data Science and Machine Learning</li>
+                                    <li class="list-group-item">Machine Learning with TensorFlow</li>
+                                    <li class="list-group-item">Data Analysis with Pandas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="{{ url_for('static', filename='assets/img/r2.png') }}" alt="Artificial Intelligence & Deep Learning">
+                            <div class="card-body">
+                                <h5 class="card-title">Artificial Intelligence & Deep Learning</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Introduction to Artificial Intelligence</li>
+                                    <li class="list-group-item">Deep Learning Specialization</li>
+                                    <li class="list-group-item">AI for Everyone</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="{{ url_for('static', filename='assets/img/r3.png') }}" alt="Cloud Computing">
+                            <div class="card-body">
+                                <h5 class="card-title">Cloud Computing</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">AWS Certified Solutions Architect</li>
+                                    <li class="list-group-item">Google Cloud Platform Fundamentals</li>
+                                    <li class="list-group-item">Microsoft Azure Fundamentals</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div><br><br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="{{ url_for('static', filename='assets/img/r4.png') }}" alt="Data Science & Machine Learning">
+                            <div class="card-body">
+                                <h5 class="card-title">Cybersecurity</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Certified Information Systems Security Professional(CISSP)</li>
+                                    <li class="list-group-item">Ethical Hacking</li>
+                                    <li class="list-group-item">Cybersecurity Essentials</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="{{ url_for('static', filename='assets/img/r5.png') }}" alt="Data Science & Machine Learning">
+                            <div class="card-body">
+                                <h5 class="card-title">Web Development</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Full-stack Web Development with React</li>
+                                    <li class="list-group-item">Frontend Web Development with Javascript</li>
+                                    <li class="list-group-item">Backend Development with Node.js</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='assets/img/r6.png') }}" alt="Data Science & Machine Learning">
+                    <div class="card-body">
+                        <h5 class="card-title">Mobile App Development</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">iOS Development with Swift</li>
+                            <li class="list-group-item">Android App Development with Kotlin</li>
+                            <li class="list-group-item">Cross-Platform Development with Flutter</li>
+                        </ul>
+                    </div>
+                </div>
+        </section>
+   <!-- Start Your Journey Section -->
+   <section id="start-your-journey" class="start-your-journey-section">
+    <div class="container">
+        <div class="content-wrapper">
+            <div>
+                <h1>Start Your Journey with FREE Credits!</h1>
+                <h4>Sign up now to receive 5000 Credits and 5 skills tokens, giving you access to chat with our AI assistant, connect with fellow learners in the community, and discover suggested skills to enhance your profile.</h4>
+                <div class="btn-group">
+                    <a href="#" class="btn">Try Dathway</a>
+                    <a href="#" class="btn">Watch Demo</a>
+                </div>
+            </div>
+            <img src="{{ url_for('static', filename='assets/img/coin.png') }}" alt="Free Credits Icon">
+        </div>
+    </div>
+</section>
+            <!-- Frequently Asked Questions Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h5>How can I use the Dathway platform? <span class="toggle-icon">▼</span></h5>
+                <div class="faq-content">
+                    <p>You can use the Dathway platform by signing up and following the on-screen instructions to get personalized recommendations and access to curated courses.</p>
+                </div>
+            </div>
+            <div class="faq-item active">
+                <h5>Is Dathway free to use? <span class="toggle-icon">▼</span></h5>
+                <div class="faq-content">
+                    <p>Yes, Dathway offers a free plan with basic features. For advanced features, premium plans are available at competitive rates.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h5>What is Dathway all about? <span class="toggle-icon">▼</span></h5>
+                <div class="faq-content">
+                    <p>Dathway is an AI-driven platform designed to provide personalized guidance and curated learning paths for career development.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Features and Benefits Section -->
+ 
+        <div class="features-bennefits-section">
+            <div class="container">
+             
+                <div class="row">
+                    <div class="col-md-4 benefit-card d-flex"  style="margin-left: -15px;">
+                        <img src="{{ url_for('static', filename='assets/img/dath1.png') }}" alt="Personalized Skill Recommendations">
+                        <p>At Dathway, we empower individuals by providing personalized learning experiences tailored to their interests, strengths, and career goals. Whether you have a learning disability or are transitioning into tech, our AI-driven platform guides you through the best skills and courses based on what you enjoy and excel at. Join Dathway to discover a supportive community, track your progress, and unlock your potential in the tech industry.</p>
+                    </div>
+                    <div class="col-md-4 benefit-card d-flex" style="margin-left: 10px;">
+                        <h3>Get in touch with our support team</h3>
+                        <form action="" method="POST" class="contact-form">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" placeholder="Enter your name" required>
+                            <label for="email">Email</label>
+                            <input type="email" name="email" placeholder="Enter your email address" required>
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" placeholder="Enter your message" required></textarea>
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                    <div class="col-md-4 benefit-card d-flex" style="margin-left: 5px;">
+                        <h3>Links</h3>
+                        <div class="quick-links">
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms of Service</a></li>
+                            </ul>
+                        </div>
+                        <h3>Connect</h3>
+                        <div class="social-icons">
+                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    &copy; 2024 Dathway. All rights reserved.
+                </div>
+            </div>
+        </footer>
+        
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+<script>
+            // FAQ toggle functionality
+            document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+</script>
+</html>
