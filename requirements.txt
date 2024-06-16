@@ -1,0 +1,10 @@
+flask
+openai
+gunicorn
+python-dotenv
+Flask-Login
+flask_sqlalchemy
+flask_migrate
+requests
+scrapegraphai
+beautifulsoup4
